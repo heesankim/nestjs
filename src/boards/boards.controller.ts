@@ -10,21 +10,18 @@ import {
 import { BoardsService } from './boards.service';
 import { Board, BoardStatus } from './board.model';
 import { CreateBoardDto } from './dto/create-board.dto';
-
 @Controller('boards')
+// 컨트롤러에서 처리하는게 아니고 서비스에서 처리(핸들링)하는 것이 좋다.
 export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 
   @Get('/')
   getAllBoards(): Board[] {
-    // 컨트롤러에서 처리하는게 아니고 서비스에서 처리(핸들링)하는 것이 좋다.
     return this.boardsService.getAllBoards();
   }
 
   @Post('/')
   createBoard(@Body() createBoardDto: CreateBoardDto): Board {
-    console.log(createBoardDto.title);
-    console.log(createBoardDto.description);
     return this.boardsService.createBoard(createBoardDto);
   }
 

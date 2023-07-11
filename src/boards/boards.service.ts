@@ -4,6 +4,15 @@ import { BoardStatus } from './board.model';
 import { randomBytes } from 'crypto';
 import { CreateBoardDto } from './dto/create-board.dto';
 
+/**
+ * @Injectable() 데코레이터는 NestJS에서 서비스를 정의할 때 사용하는 데코레이터입니다.
+ * 서비스는 비즈니스 로직을 처리하는 역할을 합니다.
+ * 예를 들어, 게시판을 생성하는 기능, 게시판의 목록을 조회하는 기능 등이 있습니다.
+ * 의존성 주입을 위해 @Injectable() 데코레이터에 providers 프로퍼티를 추가합니다.
+ * providers 프로퍼티에는 서비스를 등록합니다.
+ * 서비스는 클래스로 정의하며, 클래스에 @Injectable() 데코레이터를 추가합니다.
+ * 이렇게 하면 NestJS가 해당 클래스를 서비스로 인식합니다.
+ */
 @Injectable()
 export class BoardsService {
   // private을 사용하지 않으면 다른 컴포넌트에서 boards에 접근하는 것을 차단하기 위해서
